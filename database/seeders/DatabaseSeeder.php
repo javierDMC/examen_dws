@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MaquinistasSeeder::class);
         $this->call(PasajerosSeeder::class);
         $this->call(TrenesSeeder::class);
+        $this->call(usersSeeder::class);
+        $this->call(PasajeroTrenSeeder::class);
     }
 }

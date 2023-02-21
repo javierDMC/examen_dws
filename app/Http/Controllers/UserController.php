@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function login(Request $request) {
 
-        $user = User::where('login', $request->username)->first();
+        $user = User::where('login', $request->login)->first();
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['error' => 'Credenciales no válidas'], 401);
         } else {
