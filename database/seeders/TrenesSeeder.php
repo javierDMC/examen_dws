@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Maquinista;
+use App\Models\Tren;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

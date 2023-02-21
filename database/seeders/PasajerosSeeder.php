@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pasajero;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
