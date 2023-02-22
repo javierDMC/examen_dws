@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Pasajero;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Renfe\services\impl\PasajeroServiceImpl;
+use Renfe\services\PasajeroService;
 
 class PasajeroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(): Response
-    {
-        //
+    private PasajeroService $pasajeroService;
+
+
+    public function __construct(){
+        $this->middleware('auth:sanctum', ['except' => ['index', 'show']]);
+        $this->pasajeroService = new PasajeroServiceImpl();
+    }
+
+    public function index(){
+        $pasajeros = $this->pasajeroService->all();
+        return response()->json($pasajeros, 200);
     }
 
     /**

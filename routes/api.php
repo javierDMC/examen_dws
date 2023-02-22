@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MaquinistaController;
+use App\Http\Controllers\PasajeroController;
 use App\Http\Controllers\TrenController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -22,4 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('trenes',TrenController::class);
 Route::get('trenes/{id}/pasajeros', [TrenController::class, 'getPasajeros']);
+Route::apiResource('pasajeros',PasajeroController::class);
+Route::apiResource('maquinistas', MaquinistaController::class);
 Route::post('login', [UserController::class, 'login']);
+
+

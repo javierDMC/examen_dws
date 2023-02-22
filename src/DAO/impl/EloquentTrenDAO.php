@@ -1,6 +1,8 @@
 <?php
 namespace Renfe\DAO\impl;
 use Renfe\DAO\TrenDAO;
+use Renfe\DTO\PasajeroDTO;
+use Renfe\DTO\PasajeroTrenDTO;
 use Renfe\DTO\TrenDTO;
 use App\Models\Maquinista;
 use App\Models\Tren;
@@ -47,5 +49,17 @@ class EloquentTrenDAO implements TrenDAO{
         $tren->model = $trenDto->getModel();
         $tren->maquinista()->associate(Maquinista::findOrFail($trenDto->getMaquinista_id()));
         return $tren->save();
+    }
+
+    public function pasajerosTren(int $id){
+        $trenes = Tren::findOrFail($id)->pasajeros;
+        $resultado = [];
+        foreach ($trenes as $pasajero) {
+            $resultado[] = new PasajeroDTO(
+                $pasajero->id,
+                $pasajero->name
+            );
+        }
+        return $resultado;
     }
 }

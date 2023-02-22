@@ -34,4 +34,8 @@ class TrenServiceImpl implements TrenService {
     public function save(TrenDTO $trenDto): bool{
         return $this->trenDao->save($trenDto);
     }
+
+    public function pasajerosTren(int $id){
+        return $this->trenDao->pasajerosTren($id);
+    }
 }

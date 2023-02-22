@@ -8,4 +8,6 @@ interface TrenDAO {
     public function findById(int $id);
 
     public function save(TrenDTO $trenDto): bool;
+
+    public function pasajerosTren(int $id);
 }

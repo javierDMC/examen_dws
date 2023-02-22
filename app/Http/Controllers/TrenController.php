@@ -63,6 +63,12 @@ class TrenController extends Controller
     }
 
     public function getPasajeros($id){
-        return response()->json(Tren::findOrFail($id)->pasajeros,200);
+        $pasajerosTren = $this->trenService->pasajerosTren($id);
+        return response()->json($pasajerosTren,200);
     }
+
+    //esta forma es para usar el servicio de Laravael, devuelve toda la mandanga
+    // public function getPasajeros($id){
+    //     return response()->json(Tren::findOrFail($id)->pasajeros, 200);
+    // }
 }
